@@ -25,6 +25,8 @@ import com.aliyuncs.v5.ft.Endpoint;
 public class TestHttpApiRequest extends RpcAcsRequest<TestHttpApiResponse> {
 	   
 
+	private String ispSignatureSecretKey;
+
 	private String stringValue;
 
 	private String otherParam;
@@ -32,6 +34,8 @@ public class TestHttpApiRequest extends RpcAcsRequest<TestHttpApiResponse> {
 	private Boolean booleanParam;
 
 	private String defaultValue;
+
+	private String ispSignature;
 	public TestHttpApiRequest() {
 		super("Ft", "2018-07-13", "TestHttpApi");
 		setMethod(MethodType.POST);
@@ -41,6 +45,17 @@ public class TestHttpApiRequest extends RpcAcsRequest<TestHttpApiResponse> {
 		} catch (Exception e) {}
 	}
 
+	public String getIspSignatureSecretKey() {
+		return this.ispSignatureSecretKey;
+	}
+
+	public void setIspSignatureSecretKey(String ispSignatureSecretKey) {
+		this.ispSignatureSecretKey = ispSignatureSecretKey;
+		if(ispSignatureSecretKey != null){
+			putQueryParameter("IspSignatureSecretKey", ispSignatureSecretKey);
+		}
+	}
+
 	public String getStringValue() {
 		return this.stringValue;
 	}
@@ -48,7 +63,7 @@ public class TestHttpApiRequest extends RpcAcsRequest<TestHttpApiResponse> {
 	public void setStringValue(String stringValue) {
 		this.stringValue = stringValue;
 		if(stringValue != null){
-			putQueryParameter("StringValue", stringValue);
+			putBodyParameter("StringValue", stringValue);
 		}
 	}
 
@@ -59,7 +74,7 @@ public class TestHttpApiRequest extends RpcAcsRequest<TestHttpApiResponse> {
 	public void setOtherParam(String otherParam) {
 		this.otherParam = otherParam;
 		if(otherParam != null){
-			putQueryParameter("OtherParam", otherParam);
+			putBodyParameter("OtherParam", otherParam);
 		}
 	}
 
@@ -81,7 +96,18 @@ public class TestHttpApiRequest extends RpcAcsRequest<TestHttpApiResponse> {
 	public void setDefaultValue(String defaultValue) {
 		this.defaultValue = defaultValue;
 		if(defaultValue != null){
-			putQueryParameter("DefaultValue", defaultValue);
+			putBodyParameter("DefaultValue", defaultValue);
+		}
+	}
+
+	public String getIspSignature() {
+		return this.ispSignature;
+	}
+
+	public void setIspSignature(String ispSignature) {
+		this.ispSignature = ispSignature;
+		if(ispSignature != null){
+			putQueryParameter("IspSignature", ispSignature);
 		}
 	}
 
