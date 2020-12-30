@@ -4,11 +4,7 @@
   <groupId>com.aliyun</groupId>
   <artifactId>aliyun-java-sdk-sdk-test-v5</artifactId>
   <packaging>jar</packaging>
-<<<<<<< Updated upstream
-  <version>2.0.6-SNAPSHOT</version>
-=======
   <version>1.0.0-SNAPSHOT</version>
->>>>>>> Stashed changes
   <name>aliyun-java-sdk-sdk-test-v5</name>
   <url>http://www.aliyun.com</url>
   <description>Aliyun Open API SDK for Java
