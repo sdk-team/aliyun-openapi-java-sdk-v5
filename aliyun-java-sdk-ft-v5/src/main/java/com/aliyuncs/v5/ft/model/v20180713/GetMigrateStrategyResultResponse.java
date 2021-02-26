@@ -35,6 +35,8 @@ public class GetMigrateStrategyResultResponse extends AcsResponse {
 
 	private String requestId;
 
+	private String nullValue;
+
 	private Data data;
 
 	public Boolean getSuccess() {
@@ -77,6 +79,14 @@ public class GetMigrateStrategyResultResponse extends AcsResponse {
 		this.requestId = requestId;
 	}
 
+	public String getNullValue() {
+		return this.nullValue;
+	}
+
+	public void setNullValue(String nullValue) {
+		this.nullValue = nullValue;
+	}
+
 	public Data getData() {
 		return this.data;
 	}
@@ -92,6 +102,8 @@ public class GetMigrateStrategyResultResponse extends AcsResponse {
 		private Integer currentPage;
 
 		private Integer totalItem;
+
+		private String testNull;
 
 		private List<DataListItem> dataList;
 
@@ -117,6 +129,14 @@ public class GetMigrateStrategyResultResponse extends AcsResponse {
 
 		public void setTotalItem(Integer totalItem) {
 			this.totalItem = totalItem;
+		}
+
+		public String getTestNull() {
+			return this.testNull;
+		}
+
+		public void setTestNull(String testNull) {
+			this.testNull = testNull;
 		}
 
 		public List<DataListItem> getDataList() {
