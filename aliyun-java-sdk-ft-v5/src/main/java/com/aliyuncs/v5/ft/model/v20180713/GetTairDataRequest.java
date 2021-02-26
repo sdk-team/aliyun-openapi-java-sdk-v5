@@ -15,6 +15,7 @@
 package com.aliyuncs.v5.ft.model.v20180713;
 
 import com.aliyuncs.v5.RpcAcsRequest;
+import java.util.List;
 import com.aliyuncs.v5.http.MethodType;
 import com.aliyuncs.v5.ft.Endpoint;
 
@@ -22,12 +23,14 @@ import com.aliyuncs.v5.ft.Endpoint;
  * @author auto create
  * @version 
  */
-public class FtIpFlowControlRequest extends RpcAcsRequest<FtIpFlowControlResponse> {
+public class GetTairDataRequest extends RpcAcsRequest<GetTairDataResponse> {
 	   
 
-	private String stringList;
-	public FtIpFlowControlRequest() {
-		super("Ft", "2018-07-13", "FtIpFlowControl");
+	private List<String> keys;
+
+	private String cacheName;
+	public GetTairDataRequest() {
+		super("Ft", "2018-07-13", "GetTairData");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.v5.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -35,20 +38,33 @@ public class FtIpFlowControlRequest extends RpcAcsRequest<FtIpFlowControlRespons
 		} catch (Exception e) {}
 	}
 
-	public String getStringList() {
-		return this.stringList;
+	public List<String> getKeys() {
+		return this.keys;
 	}
 
-	public void setStringList(String stringList) {
-		this.stringList = stringList;
-		if(stringList != null){
-			putQueryParameter("StringList", stringList);
+	public void setKeys(List<String> keys) {
+		this.keys = keys;	
+		if (keys != null) {
+			for (int i = 0; i < keys.size(); i++) {
+				putQueryParameter("Keys." + (i + 1) , keys.get(i));
+			}
+		}	
+	}
+
+	public String getCacheName() {
+		return this.cacheName;
+	}
+
+	public void setCacheName(String cacheName) {
+		this.cacheName = cacheName;
+		if(cacheName != null){
+			putQueryParameter("CacheName", cacheName);
 		}
 	}
 
 	@Override
-	public Class<FtIpFlowControlResponse> getResponseClass() {
-		return FtIpFlowControlResponse.class;
+	public Class<GetTairDataResponse> getResponseClass() {
+		return GetTairDataResponse.class;
 	}
 
 }
